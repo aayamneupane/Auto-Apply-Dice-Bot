@@ -33,13 +33,17 @@ def fix_chromedriver_permissions():
                 # Add execute permissions (chmod +x)
                 os.chmod(driver_path, os.stat(driver_path).st_mode | stat.S_IXUSR | stat.S_IXGRP | stat.S_IXOTH)
                 
-                # On macOS, also remove quarantine attribute
+                # On macOS, remove xattrs to clear Gatekeeper restrictions
                 if platform.system() == "Darwin":
                     try:
-                        subprocess.run(["xattr", "-d", "com.apple.quarantine", driver_path], 
-                                      stderr=subprocess.DEVNULL)
+                        subprocess.run(["xattr", "-c", driver_path], stderr=subprocess.DEVNULL)
                     except:
                         pass  # Ignore if xattr command fails
+                    try:
+                        subprocess.run(["spctl", "--add", "--label", "ChromeDriver", driver_path], stderr=subprocess.DEVNULL)
+                        subprocess.run(["spctl", "--enable", "--label", "ChromeDriver"], stderr=subprocess.DEVNULL)
+                    except:
+                        pass  # Ignore if spctl commands fail
                         
                 print(f"Fixed permissions for {os.path.basename(driver_path)}")
                 success = True

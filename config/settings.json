@@ -2,14 +2,22 @@
     "search_queries": [
         "Senior Java Developer",
         "Java Developer",
-        "Senior Java Full Stack Developer"
+        "Senior Java Full Stack Developer",
+        "Java Architecht",
+        "Full stack developer Java",
+        "Java Full stack developer",
+        "Java Developer with AI",
+        "Java Backend Developer",
+        "Java Developer with Agentic AI",
+        "Java Architect",
+        "Senior Java AWS developer",
+        "Java AWS developer"
     ],
     "exclude_keywords": [
         "Manager",
         "Director",
         ".net",
         "SAP",
-        "java",
         "w2 only",
         "only w2",
         "no c2c",
@@ -58,7 +66,12 @@
         "OOP",
         "SOLID Principles",
         "Technical Leadership",
-        "Code Review."
+        "Code Review",
+        "Contract independent",
+        "c2c",
+        "corp to corp",
+        "AWS",
+        "Kafka"
     ],
     "headless_mode": false,
     "job_application_limit": 2000

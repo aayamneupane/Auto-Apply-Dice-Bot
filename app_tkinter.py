@@ -890,9 +890,10 @@ After the process completes, you can find:
         except Exception as e:
             self.logger.error(f"Error in job application process: {e}")
             self.update_status(f"Error: {str(e)}")
-            self.root.after(0, lambda: messagebox.showerror(
+            err_msg = str(e)
+            self.root.after(0, lambda err_msg=err_msg: messagebox.showerror(
                 "Error", 
-                f"An error occurred: {str(e)}"
+                f"An error occurred: {err_msg}"
             ))
         finally:
             # Reset UI

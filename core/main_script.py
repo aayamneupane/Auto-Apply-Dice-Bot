@@ -917,4 +917,4 @@ if __name__ == "__main__":
     start_time = datetime.datetime.now()
     main()
     end_time = datetime.datetime.now()
-    print(f"Exact Execution time: {end_time - start_time}")
+    print("Exact Execution time: {end_time - start_time}")
